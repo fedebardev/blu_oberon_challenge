@@ -29,7 +29,6 @@ services:
       - DB_NAME=postgres
       - JWT_SECRET=FBUEQIFU2837JFEHOUHGFUHUEC93038Y85430892M8CYGUROW
     working_dir: /app
-    command: npm run start:dev
     volumes:
       - ./backend:/app
       - /app/node_modules

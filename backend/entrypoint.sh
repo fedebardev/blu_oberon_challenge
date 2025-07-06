@@ -1,5 +1,6 @@
 #!/bin/sh
-cat <<EOF > .env
+
+cat <<EOF > /app/.env
 DB_HOST=${DB_HOST}
 DB_PORT=${DB_PORT}
 DB_USERNAME=${DB_USERNAME}
@@ -9,5 +10,6 @@ JWT_SECRET=${JWT_SECRET}
 EOF
 
 
+cat /app/.env
 
 npm run start:dev
