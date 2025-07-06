@@ -17,7 +17,7 @@ export const getAllJobOffers = async (_req: AuthRequest, res: Response) => {
 export const getMyJobOffers = async (req: AuthRequest, res: Response) => {
   const jobs = await jobRepo.find({
     where: { recruiter: { id: req.user?.id } },
-    relations: ["applications"],
+    relations: ["applications","applications.candidate"],
   });
   res.json(jobs);
 };
@@ -25,7 +25,7 @@ export const getMyJobOffers = async (req: AuthRequest, res: Response) => {
 export const getMyApplications = async (req: AuthRequest, res: Response) => {
   const apps = await appRepo.find({
     where: { candidate: { id: req.user?.id } },
-    relations: ["jobOffer"],
+    relations: ["jobOffer","jobOffer.recruiter"],
   });
   res.json(apps.map(app => app.jobOffer));
 };
