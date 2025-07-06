@@ -14,6 +14,4 @@ COPY . .
 
 EXPOSE 3000
 
-COPY entrypoint.sh /app/entrypoint.sh
-RUN chmod +x /app/entrypoint.sh
-CMD ["./entrypoint.sh"]
+CMD ["npm", "run", "start:dev"]
